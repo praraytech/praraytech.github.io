@@ -872,37 +872,7 @@
                 navbar.classList.remove('scrolled');
             }
         });
-    // Handle URL-based navigation
-    function loadPageFromURL() {
-        const path = window.location.pathname;
-        const hash = window.location.hash.replace('#', '');
-        
-        // Map URL paths to page IDs
-        const routes = {
-            '/home': '#',
-            '/it-services': 'it-services',
-            '/contact': 'contact',
-            '/terms-and-condition': 'terms',
-            '/privacy-policy': 'privacy',
-            '/refund-policy': 'refund'
-        };
-        
-        // Check if there's a hash in URL
-        if (hash && document.getElementById(hash)) {
-            showPage(hash);
-            return;
-        }
-        
-        // Check if path matches a route
-        if (routes[path]) {
-            showPage(routes[path]);
-            return;
-        }
-        
-        // Default to home
-        showPage('home');
-    }
-    
+
     // Update showPage function to change URL
     function showPage(pageId) {
         const pages = document.querySelectorAll('.page');
@@ -911,15 +881,41 @@
         document.getElementById(pageId).classList.add('active');
         window.scrollTo(0, 0);
         
-        // Update URL without page reload
-        history.pushState({page: pageId}, '', '#' + pageId);
+        // Update URL without page reload (using replaceState instead of pushState)
+        window.history.replaceState({page: pageId}, '', '#' + pageId);
     }
 
-// Load page on initial load
-window.addEventListener('load', loadPageFromURL);
+    // Handle URL-based navigation
+    function loadPageFromURL() {
+        const hash = window.location.hash.replace('#', '');
+        
+        // If there's a hash and page exists, show it
+        if (hash && document.getElementById(hash)) {
+            showPage(hash);
+        } else {
+            // Default to home if no hash or invalid hash
+            showPage('home');
+        }
+    }
 
-// Handle browser back/forward buttons
-window.addEventListener('popstate', loadPageFromURL);
-    </script>
+    // Load page on initial load
+    window.addEventListener('load', loadPageFromURL);
+
+    // Handle browser back/forward buttons
+    window.addEventListener('popstate', loadPageFromURL);
+
+    // Handle hash changes
+    window.addEventListener('hashchange', loadPageFromURL);
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+        const navbar = document.getElementById('navbar');
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+</script>
 </body>
 </html>
