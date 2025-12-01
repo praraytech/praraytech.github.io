@@ -872,6 +872,54 @@
                 navbar.classList.remove('scrolled');
             }
         });
+    // Handle URL-based navigation
+    function loadPageFromURL() {
+        const path = window.location.pathname;
+        const hash = window.location.hash.replace('#', '');
+        
+        // Map URL paths to page IDs
+        const routes = {
+            '/home': '#',
+            '/it-services': 'it-services',
+            '/contact': 'contact',
+            '/terms-and-condition': 'terms',
+            '/privacy-policy': 'privacy',
+            '/refund-policy': 'refund'
+        };
+        
+        // Check if there's a hash in URL
+        if (hash && document.getElementById(hash)) {
+            showPage(hash);
+            return;
+        }
+        
+        // Check if path matches a route
+        if (routes[path]) {
+            showPage(routes[path]);
+            return;
+        }
+        
+        // Default to home
+        showPage('home');
+    }
+    
+    // Update showPage function to change URL
+    function showPage(pageId) {
+        const pages = document.querySelectorAll('.page');
+        pages.forEach(page => page.classList.remove('active'));
+        
+        document.getElementById(pageId).classList.add('active');
+        window.scrollTo(0, 0);
+        
+        // Update URL without page reload
+        history.pushState({page: pageId}, '', '#' + pageId);
+    }
+
+// Load page on initial load
+window.addEventListener('load', loadPageFromURL);
+
+// Handle browser back/forward buttons
+window.addEventListener('popstate', loadPageFromURL);
     </script>
 </body>
 </html>
