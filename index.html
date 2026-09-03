@@ -232,6 +232,26 @@
             box-shadow: 0 20px 60px rgba(102, 126, 234, 0.2);
         }
 
+        .service-card.featured {
+            border-color: #77c9ca;
+            background: linear-gradient(145deg, #ffffff 0%, #f0fafb 100%);
+        }
+
+        .service-card.featured:after {
+            content: 'Featured service';
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            padding: 5px 9px;
+            color: var(--brand-dark, #0d4f68);
+            background: #d9eff0;
+            border-radius: 999px;
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+        }
+
         .service-icon {
             width: 70px;
             height: 70px;
@@ -420,16 +440,544 @@
                 padding: 60px 20px;
             }
         }
+
+        /* Professional visual system */
+        :root {
+            --ink: #10233f;
+            --muted: #5f7088;
+            --brand: #176b87;
+            --brand-dark: #0d4f68;
+            --surface: #ffffff;
+            --canvas: #f4f7fa;
+            --line: #dce5ed;
+        }
+
+        body {
+            color: var(--ink);
+            background: var(--canvas);
+            font-size: 16px;
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.92);
+            border-bottom: 1px solid rgba(220, 229, 237, 0.8);
+            box-shadow: 0 4px 24px rgba(16, 35, 63, 0.06);
+        }
+
+        nav .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--ink);
+            background: none;
+            -webkit-text-fill-color: initial;
+            font-size: 1.55rem;
+            letter-spacing: -0.7px;
+            line-height: 1;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        nav .logo:before {
+            content: 'P';
+            display: inline-grid;
+            place-items: center;
+            width: 36px;
+            height: 36px;
+            color: white;
+            background: linear-gradient(145deg, #278da0, #0d5875);
+            border: 1px solid rgba(121, 210, 208, 0.5);
+            border-radius: 11px;
+            box-shadow: 0 5px 12px rgba(13, 79, 104, 0.2);
+            font-size: 1.05rem;
+            font-weight: 800;
+            letter-spacing: 0;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        nav .logo:hover {
+            color: var(--brand-dark);
+        }
+
+        nav .logo:hover:before {
+            transform: translateY(-2px) rotate(-3deg);
+            box-shadow: 0 8px 16px rgba(13, 79, 104, 0.25);
+        }
+
+        nav .logo:focus-visible,
+        footer .logo:focus-visible {
+            outline: 3px solid rgba(121, 210, 208, 0.65);
+            outline-offset: 5px;
+        }
+
+        nav ul {
+            align-items: center;
+            gap: 2.25rem;
+        }
+
+        nav a {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        nav li:last-child a {
+            padding: 10px 18px;
+            color: white;
+            background: var(--brand);
+            border-radius: 7px;
+        }
+
+        nav li:last-child a:after {
+            display: none;
+        }
+
+        nav li:last-child a:hover {
+            color: white;
+            background: var(--brand-dark);
+        }
+
+        .hero {
+            min-height: 560px;
+            display: grid;
+            place-items: center;
+            padding: 110px 40px 100px;
+            text-align: left;
+            background:
+                radial-gradient(circle at 85% 20%, rgba(66, 177, 190, 0.2), transparent 28%),
+                linear-gradient(118deg, #0d2949 0%, #123f5a 56%, #176b87 100%);
+        }
+
+        .hero-content {
+            width: min(1400px, 100%);
+            padding: 0 40px;
+        }
+
+        .hero-content:before {
+            content: 'AI, SOFTWARE, AND SUPPORT FOR YOUR NEXT STEP';
+            display: block;
+            margin-bottom: 1.4rem;
+            color: #79d2d0;
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .hero h1 {
+            max-width: 720px;
+            margin-bottom: 1.25rem;
+            font-size: clamp(2.8rem, 6vw, 5rem);
+            line-height: 1.05;
+            letter-spacing: -2.5px;
+        }
+
+        .hero p {
+            max-width: 600px;
+            margin-bottom: 1rem;
+            color: #d8e8f0;
+            font-size: 1.2rem;
+        }
+
+        .hero p:nth-of-type(2) {
+            margin-bottom: 2.25rem;
+            color: #a9c5d2;
+            font-size: 0.98rem;
+        }
+
+        .hero p:nth-of-type(3) {
+            margin-top: -0.5rem;
+        }
+
+        .btn {
+            padding: 14px 24px;
+            color: var(--ink);
+            border-radius: 7px;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+        }
+
+        .services-grid {
+            position: relative;
+            z-index: 2;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            padding: 0 40px;
+            margin-top: -54px;
+        }
+
+        .service-card,
+        .contact-card,
+        .feature-item {
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            box-shadow: 0 12px 34px rgba(16, 35, 63, 0.07);
+        }
+
+        .service-card {
+            padding: 2rem;
+        }
+
+        .service-card:before {
+            background: var(--brand);
+        }
+
+        .service-icon,
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 1.25rem;
+            border-radius: 10px;
+            background: #e6f3f4;
+            color: var(--brand-dark);
+            font-size: 1.35rem;
+        }
+
+        .service-card h3,
+        .contact-card h4,
+        .feature-item h4 {
+            color: var(--ink);
+        }
+
+        .service-card p,
+        .feature-item p,
+        .contact-card p,
+        .content-section > p {
+            color: var(--muted);
+        }
+
+        .stats-section {
+            margin: 72px 0 0;
+            padding: 58px 40px;
+            background: var(--ink);
+        }
+
+        .stat-number {
+            color: #79d2d0;
+            font-size: 3rem;
+        }
+
+        .content-section {
+            padding: 88px 40px;
+        }
+
+        .content-section h2 {
+            color: var(--ink);
+            background: none;
+            -webkit-text-fill-color: initial;
+            font-size: clamp(2.2rem, 4vw, 3.4rem);
+        }
+
+        .feature-item {
+            padding: 1.75rem;
+            background: var(--surface);
+            background-image: none;
+        }
+
+        .feature-item:hover {
+            border-color: #a9cbd5;
+            transform: translateY(-4px);
+        }
+
+        .feature-item.featured {
+            border-color: #77c9ca;
+            background: linear-gradient(145deg, #ffffff 0%, #f0fafb 100%);
+        }
+
+        .about-layout {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 2rem;
+            align-items: stretch;
+            margin-top: 2.5rem;
+        }
+
+        .about-panel {
+            padding: 2.5rem;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            box-shadow: 0 12px 34px rgba(16, 35, 63, 0.07);
+        }
+
+        .about-panel h3 {
+            margin-bottom: 1rem;
+            color: var(--ink);
+            font-size: 1.45rem;
+        }
+
+        .about-panel p {
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        .about-values {
+            display: grid;
+            gap: 1rem;
+            margin-top: 1.75rem;
+        }
+
+        .about-value {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            padding: 1.1rem;
+            background: #f4f8fa;
+            border-radius: 9px;
+        }
+
+        .about-value strong {
+            display: block;
+            margin-bottom: 0.2rem;
+            color: var(--ink);
+        }
+
+        .about-value span {
+            color: var(--muted);
+            font-size: 0.92rem;
+            line-height: 1.55;
+        }
+
+        .about-value-icon {
+            flex: 0 0 34px;
+            display: grid;
+            place-items: center;
+            width: 34px;
+            height: 34px;
+            color: var(--brand-dark);
+            background: #d9eff0;
+            border-radius: 8px;
+        }
+
+        .about-highlight {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2.5rem;
+            color: white;
+            background: linear-gradient(145deg, #123f5a, #176b87);
+            border-radius: 12px;
+            box-shadow: 0 12px 34px rgba(16, 35, 63, 0.12);
+        }
+
+        .about-highlight .eyebrow {
+            margin-bottom: 1rem;
+            color: #79d2d0;
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .about-highlight h3 {
+            margin-bottom: 1rem;
+            font-size: 2rem;
+            line-height: 1.15;
+        }
+
+        .about-highlight p {
+            color: #d8e8f0;
+        }
+
+        .about-highlight .btn {
+            align-self: flex-start;
+            margin-top: 1.75rem;
+        }
+
+        footer {
+            margin-top: 0;
+            padding: 4.5rem 0 1.5rem;
+            background: #0b1a2d;
+            text-align: left;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: minmax(220px, 1.4fr) repeat(3, minmax(140px, 1fr));
+            gap: 3rem;
+            padding-bottom: 3.5rem;
+        }
+
+        .footer-brand {
+            max-width: 310px;
+        }
+
+        .footer-brand .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 1.25rem;
+            color: white;
+            font-size: 1.55rem;
+            font-weight: 800;
+            line-height: 1;
+            text-decoration: none;
+        }
+
+        .footer-brand .logo:before {
+            width: 34px;
+            height: 34px;
+            margin: 0;
+            color: var(--ink);
+            background: #79d2d0;
+            border: 0;
+            box-shadow: none;
+        }
+
+        .footer-brand p,
+        .footer-column a,
+        .footer-contact p {
+            color: #9db0c2;
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        .footer-column h3,
+        .footer-contact h3 {
+            margin-bottom: 1.25rem;
+            color: white;
+            font-size: 0.82rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .footer-column nav {
+            display: grid;
+            gap: 0.7rem;
+            padding: 0;
+            background: transparent;
+            box-shadow: none;
+        }
+
+        .footer-column a {
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-column a:hover {
+            color: #79d2d0;
+        }
+
+        .footer-contact a {
+            color: #d5eef0;
+            text-decoration: none;
+        }
+
+        .footer-contact a:hover {
+            color: #79d2d0;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(157, 176, 194, 0.2);
+        }
+
+        .footer-bottom p,
+        .footer-bottom a {
+            color: #8295a8;
+            font-size: 0.82rem;
+        }
+
+        .footer-bottom nav {
+            display: flex;
+            gap: 1.25rem;
+            padding: 0;
+            background: transparent;
+            box-shadow: none;
+        }
+
+        .footer-bottom a {
+            text-decoration: none;
+        }
+
+        .footer-bottom a:hover {
+            color: #79d2d0;
+        }
+
+        @media (max-width: 768px) {
+            nav .container,
+            .hero-content {
+                padding: 0 20px;
+            }
+
+            nav ul {
+                gap: 0.8rem;
+            }
+
+            nav a {
+                font-size: 0.82rem;
+            }
+
+            nav .logo {
+                gap: 8px;
+                font-size: 1.05rem;
+                white-space: nowrap;
+            }
+
+            nav .logo:before {
+                width: 30px;
+                height: 30px;
+                font-size: 0.9rem;
+            }
+
+            nav li:last-child a {
+                padding: 8px 10px;
+            }
+
+            .hero {
+                min-height: 500px;
+                padding: 80px 20px 100px;
+            }
+
+            .hero h1 {
+                letter-spacing: -1.5px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                padding: 0 20px;
+            }
+
+            .about-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .about-panel,
+            .about-highlight {
+                padding: 1.75rem;
+            }
+
+            footer {
+                padding: 3.5rem 0 1.25rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2.25rem 1.5rem;
+                padding-bottom: 2.5rem;
+            }
+
+            .footer-brand {
+                grid-column: 1 / -1;
+                max-width: none;
+            }
+
+            .footer-bottom {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav id="navbar">
         <div class="container">
-            <div class="logo">Praray Tech</div>
+            <a class="logo" href="#home" onclick="showPage('home')" aria-label="Praray Tech home">Praray Tech</a>
             <ul>
                 <li><a href="#home" onclick="showPage('home')">Home</a></li>
-                <li><a href="#it-services" onclick="showPage('it-services')">IT Services</a></li>
+                <li><a href="#about" onclick="showPage('about')">About Us</a></li>
+                <li><a href="#it-services" onclick="showPage('it-services')">AI Solutions</a></li>
                 <li><a href="#contact" onclick="showPage('contact')">Contact</a></li>
             </ul>
         </div>
@@ -439,14 +987,20 @@
     <div id="home" class="page active">
         <div class="hero">
             <div class="hero-content">
-                <h1>Welcome to Praray Tech</h1>
-                <p>Your Partner in Digital Transformation</p>
-                <p>Under Development For Updates.</p>
-                <a href="#" class="btn" onclick="showPage('it-services')">Explore Our Services</a>
+                <h1>We build the systems your business relies on.</h1>
+                <p>Practical technology for teams that are ready to grow.</p>
+                <p>We help teams use AI, software, and reliable IT support to get important work done.</p>
+                <p>Tell us what is slowing your business down.</p>
+                <a href="#it-services" class="btn" onclick="showPage('it-services')">Explore AI solutions</a>
             </div>
         </div>
 
         <div class="services-grid">
+            <div class="service-card featured">
+                <div class="service-icon">✦</div>
+                <h3>AI Solutions</h3>
+                <p>Practical AI integrations that automate repetitive work, surface useful insights, and improve customer experiences.</p>
+            </div>
             <div class="service-card">
                 <div class="service-icon">🖥️</div>
                 <h3>IT Services</h3>
@@ -482,13 +1036,63 @@
         </div>
     </div>
 
+    <!-- About Us Page -->
+    <div id="about" class="page">
+        <div class="content-section">
+            <h2>A technology partner you can work with.</h2>
+            <p>Good technology should make work simpler, not create another problem to manage.</p>
+
+            <div class="about-layout">
+                <section class="about-panel">
+                    <h3>We keep things useful.</h3>
+                    <p>Praray Tech is a technology partner for teams that want dependable systems, thoughtful digital experiences, and support they can count on. We combine technical expertise with a clear understanding of how your business works.</p>
+                    <p style="margin-top: 1rem;">From infrastructure and cloud solutions to custom applications and responsible AI integrations, we build and improve technology that is secure, maintainable, and ready to grow with you.</p>
+
+                    <div class="about-values">
+                        <div class="about-value">
+                            <div class="about-value-icon">✓</div>
+                            <div><strong>Practical by design</strong><span>Solutions focused on measurable business outcomes, not unnecessary complexity.</span></div>
+                        </div>
+                        <div class="about-value">
+                            <div class="about-value-icon">↗</div>
+                            <div><strong>Built to scale</strong><span>Flexible foundations that support your next stage of growth.</span></div>
+                        </div>
+                        <div class="about-value">
+                            <div class="about-value-icon">◆</div>
+                            <div><strong>People first</strong><span>Clear communication and long-term partnerships at every step.</span></div>
+                        </div>
+                    </div>
+                </section>
+
+                <aside class="about-highlight">
+                    <div class="eyebrow">A sensible way to use technology</div>
+                    <h3>Start with the problem. Choose the right solution.</h3>
+                    <p>Our experienced team brings together strategy, design, development, and support to help you move forward with confidence.</p>
+                    <a href="#contact" class="btn" onclick="showPage('contact')">Start a conversation</a>
+                </aside>
+            </div>
+        </div>
+    </div>
+
     <!-- IT Services Page -->
     <div id="it-services" class="page">
         <div class="content-section">
-            <h2>IT Services</h2>
-            <p>We provide comprehensive IT services to help your business leverage technology effectively and securely.</p>
+            <h2>What we can help you with.</h2>
+            <p>From useful AI tools to the systems behind them, we build technology that fits the way your team works.</p>
             
             <div class="feature-list">
+                <div class="feature-item featured">
+                    <h4>✦ AI Integration &amp; Automation</h4>
+                    <p>Connect secure AI tools to your workflows to reduce manual effort, accelerate decisions, and create more responsive customer experiences.</p>
+                </div>
+                <div class="feature-item featured">
+                    <h4>🧠 AI Assistants &amp; Knowledge Search</h4>
+                    <p>Business-aware assistants and natural-language search that help teams find answers across their trusted documents and data.</p>
+                </div>
+                <div class="feature-item featured">
+                    <h4>📊 Predictive Insights</h4>
+                    <p>Turn business data into useful forecasts, recommendations, and dashboards that support better planning.</p>
+                </div>
                 <div class="feature-item">
                     <h4>☁️ Cloud Solutions</h4>
                     <p>Migrate to the cloud with confidence. We help you choose and implement the right cloud infrastructure.</p>
@@ -541,8 +1145,8 @@
     <!-- Contact Page -->
     <div id="contact" class="page">
         <div class="content-section">
-            <h2>Get In Touch</h2>
-            <p>Ready to start your next project? Contact us today for a free consultation.</p>
+            <h2>Tell us what you’re working on.</h2>
+            <p>Have a project in mind, or a process that needs improving? We’d be glad to hear about it.</p>
             
             <div class="contact-grid">
                 <div class="contact-card">
@@ -855,31 +1459,47 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2024 Praray Production Technologies. All rights reserved. <br><a href="#refund" onclick="showPage('refund')" style="color: white; text-decoration: underline; cursor: pointer;"> Refund Policy </a><br> <a href="#terms" onclick="showPage('terms')" style="color: white; text-decoration: underline; cursor: pointer;">Terms & Conditions</a> | <a href="#privacy" onclick="showPage('privacy')" style="color: white; text-decoration: underline; cursor: pointer;"> Privacy Policy </a></p>
-
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a class="logo" href="#home" onclick="showPage('home')">Praray Tech</a>
+                    <p>Technology solutions designed to help ambitious businesses operate better, serve customers faster, and grow with confidence.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Explore</h3>
+                    <nav aria-label="Explore">
+                        <a href="#home" onclick="showPage('home')">Home</a>
+                        <a href="#about" onclick="showPage('about')">About Us</a>
+                        <a href="#it-services" onclick="showPage('it-services')">AI Solutions</a>
+                        <a href="#contact" onclick="showPage('contact')">Contact</a>
+                    </nav>
+                </div>
+                <div class="footer-column">
+                    <h3>Policies</h3>
+                    <nav aria-label="Policies">
+                        <a href="#terms" onclick="showPage('terms')">Terms &amp; Conditions</a>
+                        <a href="#privacy" onclick="showPage('privacy')">Privacy Policy</a>
+                        <a href="#refund" onclick="showPage('refund')">Refund Policy</a>
+                    </nav>
+                </div>
+                <div class="footer-contact">
+                    <h3>Reach us</h3>
+                    <p><a href="mailto:contact@praraytech.com">contact@praraytech.com</a></p>
+                    <p><a href="tel:+916232021857">+91 62320 21857</a></p>
+                    <p>Ratlam, Madhya Pradesh, India</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Praray Production Technologies. All rights reserved.</p>
+                <nav aria-label="Legal links">
+                    <a href="#terms" onclick="showPage('terms')">Terms</a>
+                    <a href="#privacy" onclick="showPage('privacy')">Privacy</a>
+                </nav>
+            </div>
         </div>
     </footer>
 
     <script>
-        function showPage(pageId) {
-            const pages = document.querySelectorAll('.page');
-            pages.forEach(page => page.classList.remove('active'));
-            
-            document.getElementById(pageId).classList.add('active');
-            window.scrollTo(0, 0);
-        }
-
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-    // Update showPage function to change URL
+    // Update the visible section and URL without a full page reload.
     function showPage(pageId) {
         const pages = document.querySelectorAll('.page');
         pages.forEach(page => page.classList.remove('active'));
